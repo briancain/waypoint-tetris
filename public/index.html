@@ -7,21 +7,6 @@
 
   <!-- Blockrain.js -->
   <link rel="stylesheet" type="text/css" href="/static/blockrain/blockrain.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="/static/blockrain/blockrain.jquery.js"></script>
-
-  <script>
-    console.log("about to start");
-    $('.game').blockrain({
-      autoplay: true,
-      autoplayRestart: true,
-      speed: 100,
-      autoBlockWidth: true,
-      autoBlockSize: 25,
-      theme: 'retro'
-    });
-    console.log("started!!");
-  </script>
 </head>
 
 <body>
@@ -48,5 +33,21 @@
     </footer>
   </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/static/blockrain/blockrain.jquery.js"></script>
+
+<script>
+  console.log("about to start");
+  $('.game').blockrain({
+    autoplay: true,
+    autoplayRestart: true,
+    speed: 100,
+    autoBlockWidth: true,
+    autoBlockSize: 25,
+    theme: 'retro'
+  });
+  console.log("started!!");
+</script>
 
 </html>
