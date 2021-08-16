@@ -4,6 +4,24 @@
 <head>
   <title>Waypoint Nginx Example</title>
   <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css" />
+
+  <!-- Blockrain.js -->
+  <link rel="stylesheet" type="text/css" href="/static/blockrain/blockrain.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/static/blockrain/blockrain.jquery.js"></script>
+
+  <script>
+    console.log("about to start");
+    $('.game').blockrain({
+      autoplay: true,
+      autoplayRestart: true,
+      speed: 100,
+      autoBlockWidth: true,
+      autoBlockSize: 25,
+      theme: 'retro'
+    });
+    console.log("started!!");
+  </script>
 </head>
 
 <body>
@@ -18,9 +36,7 @@
         <img class="language-image" src="/static/images/language.svg" alt="Icon" />
       </div>
       <h1>This static HTML app was deployed with Waypoint on Nginx.</h1>
-      <p>
-        Try making a change to this text locally and run <code>waypoint up</code> again to see it.
-      </p>
+      <div class="game" style="width:250px; height:500px;"></div>
       <p>
         Read the <a href="https://waypointproject.io/docs">documentation</a> for more about Waypoint.
       </p>

@@ -3,7 +3,7 @@ project = "nginx-project"
 # Labels can be specified for organizational purposes.
 # labels = { "foo" = "bar" }
 
-app "web" {
+app "tetris" {
   build {
     use "docker" {
     }
