@@ -3,15 +3,27 @@ project = "nginx-project"
 # Labels can be specified for organizational purposes.
 # labels = { "foo" = "bar" }
 
+variable "registry_image" {
+  default     = "tetris"
+  type        = string
+  description = "Image name for the built image in the Docker registry."
+}
+
+variable "registry_local" {
+  default     = true
+  type        = bool
+  description = "Whether or not to push the built container to a remote registry"
+}
+
 app "tetris" {
   build {
     use "docker" {
     }
     registry {
       use "docker" {
-        image = "localhost:5000/nginx-project"
+        image = var.registry_image
         tag   = "1"
-        local = false
+        local = var.registry_local
       }
     }
 
@@ -27,7 +39,6 @@ app "tetris" {
     use "kubernetes" {
       load_balancer = false
       node_port     = 30000 // can only be 30000-32767 in k8s
-
     }
   }
 }
