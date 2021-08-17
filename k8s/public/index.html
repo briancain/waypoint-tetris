@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Waypoint Nginx Example</title>
+  <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css" />
+
+  <!-- Blockrain.js -->
+  <link rel="stylesheet" type="text/css" href="/static/blockrain/blockrain.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="https://waypointproject.io" class="logo">
+        <img src="/static/images/logo.svg" alt="Logo" />
+      </a>
+    </header>
+    <section class="content">
+      <div class="language-icon">
+        <img class="language-image" src="/static/images/language.svg" alt="Icon" />
+      </div>
+      <h1>This static HTML app was deployed with Waypoint on Nginx.</h1>
+      <div class="game" style="width:250px; height:500px;"></div>
+      <p>
+        Read the <a href="https://waypointproject.io/docs">documentation</a> for more about Waypoint.
+      </p>
+    </section>
+    <footer>
+      <a href="https://hashicorp.com" class="hashi">
+        <img src="/static/images/hashi.svg" alt="HashiCorp" />
+      </a>
+    </footer>
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/static/blockrain/blockrain.jquery.js"></script>
+
+<script>
+  $('.game').blockrain({
+    autoplay: true,
+    autoplayRestart: true,
+    speed: 100,
+    autoBlockWidth: true,
+    autoBlockSize: 25,
+    theme: 'retro'
+  });
+</script>
+
+</html>
