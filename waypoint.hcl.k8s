@@ -1,0 +1,33 @@
+project = "nginx-project"
+
+# Labels can be specified for organizational purposes.
+# labels = { "foo" = "bar" }
+
+app "tetris" {
+  build {
+    use "docker" {
+    }
+    registry {
+      use "docker" {
+        image = "localhost:5000/nginx-project"
+        tag   = "1"
+        local = false
+      }
+    }
+
+  }
+
+  deploy {
+    use "kubernetes" {
+      probe_path = "/"
+    }
+  }
+
+  release {
+    use "kubernetes" {
+      load_balancer = false
+      node_port     = 30000 // can only be 30000-32767 in k8s
+
+    }
+  }
+}
