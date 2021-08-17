@@ -3,7 +3,13 @@ project = "nginx-project"
 # Labels can be specified for organizational purposes.
 # labels = { "foo" = "bar" }
 
-variable "registry_image" {
+variable "tag" {
+  default     = "latest"
+  type        = string
+  description = "The tab for the built image in the Docker registry."
+}
+
+variable "image" {
   default     = "tetris"
   type        = string
   description = "Image name for the built image in the Docker registry."
@@ -15,14 +21,20 @@ variable "registry_local" {
   description = "Whether or not to push the built container to a remote registry"
 }
 
+variable "release_port" {
+  default     = "3000"
+  type        = string
+  description = "Port to open for the releaser."
+}
+
 app "tetris" {
   build {
     use "docker" {
     }
     registry {
       use "docker" {
-        image = var.registry_image
-        tag   = "1"
+        image = var.image
+        tag   = var.tag
         local = var.registry_local
       }
     }
@@ -38,7 +50,7 @@ app "tetris" {
   release {
     use "kubernetes" {
       load_balancer = true
-      port = 3000
+      port          = var.release_port
     }
   }
 }
