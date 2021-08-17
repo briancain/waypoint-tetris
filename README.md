@@ -1,6 +1,6 @@
 # Waypoint Tetris
 
-A static HTML and CSS website that can be deployed with Docker.
+A static HTML and CSS website that can be deployed with Docker or Kubernetes.
 
 Uses the `nginx` image configured to run on the default Waypoint port 3000.
 
