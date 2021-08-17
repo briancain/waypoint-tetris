@@ -37,8 +37,8 @@ app "tetris" {
 
   release {
     use "kubernetes" {
-      load_balancer = false
-      node_port     = 30000 // can only be 30000-32767 in k8s
+      load_balancer = true
+      port = 3000
     }
   }
 }
