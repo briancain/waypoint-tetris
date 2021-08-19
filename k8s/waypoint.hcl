@@ -1,4 +1,4 @@
-project = "nginx-project"
+project = "k8s-tetris-project"
 
 # Labels can be specified for organizational purposes.
 # labels = { "foo" = "bar" }
