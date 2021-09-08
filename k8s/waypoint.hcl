@@ -56,11 +56,10 @@ app "tetris" {
 
   release {
     use "kubernetes" {
+      load_balancer = true
+      port          = var.release_port
+
       namespace = var.namespace
-      ingress "http" {
-        path_type = "Prefix"
-        path      = "/"
-      }
     }
   }
 }
