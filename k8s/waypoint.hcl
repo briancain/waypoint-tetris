@@ -27,6 +27,12 @@ variable "release_port" {
   description = "Port to open for the releaser."
 }
 
+variable "namespace" {
+  default     = ""
+  type        = string
+  description = "Namespace to deploy to on a Kubernetes cluster"
+}
+
 app "tetris" {
   build {
     use "docker" {
@@ -44,13 +50,17 @@ app "tetris" {
   deploy {
     use "kubernetes" {
       probe_path = "/"
+      namespace  = var.namespace
     }
   }
 
   release {
     use "kubernetes" {
-      load_balancer = true
-      port          = var.release_port
+      namespace = var.namespace
+      ingress "http" {
+        path_type = "Prefix"
+        path      = "/"
+      }
     }
   }
 }
