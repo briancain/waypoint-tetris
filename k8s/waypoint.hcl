@@ -51,6 +51,22 @@ app "tetris" {
     use "kubernetes" {
       probe_path = "/"
       namespace  = var.namespace
+
+      cpu {
+        request = "250m"
+        limit   = "500m"
+      }
+
+      memory {
+        request = "64Mi"
+        limit   = "128Mi"
+      }
+
+      autoscale {
+        min_replicas = 2
+        max_replicas = 5
+        cpu_percent  = 50
+      }
     }
   }
 
