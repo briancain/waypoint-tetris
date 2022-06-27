@@ -68,6 +68,12 @@ variable "tag" {
   description = "Image tag for the image"
 }
 
+variable "registry_local" {
+  default     = false
+  type        = bool
+  description = "Set to enable local or remote container registry pushing"
+}
+
 variable "registry_username" {
   default = dynamic("vault", {
     path = "config/data/secret/registry"
