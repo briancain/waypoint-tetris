@@ -26,7 +26,8 @@ app "tetris" {
 
   deploy {
     use "kubernetes" {
-      probe_path = "/"
+      probe_path   = "/"
+      image_secret = var.regcred_secret
 
       cpu {
         request = "250m"
