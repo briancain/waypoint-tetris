@@ -1,6 +1,8 @@
 .DS_Store
 data.db
 
+*.wpvars
+
 # Local .waypoint directories
 **/.waypoint/*
 
