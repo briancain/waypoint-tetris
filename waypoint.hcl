@@ -77,8 +77,8 @@ variable "registry_local" {
 
 variable "registry_username" {
   default = dynamic("vault", {
-    path = "config/data/secret/registry"
-    key  = "data/registry_username"
+    path = "secret/data/registry"
+    key  = "/data/registry_username"
   })
   type        = string
   sensitive   = true
@@ -87,8 +87,8 @@ variable "registry_username" {
 
 variable "registry_password" {
   default = dynamic("vault", {
-    path = "config/data/secret/registry"
-    key  = "data/registry_password"
+    path = "secret/data/registry"
+    key  = "/data/registry_password"
   })
   type        = string
   sensitive   = true
