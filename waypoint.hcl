@@ -1,5 +1,13 @@
 project = "k8s-tetris"
 
+pipeline "marathon" {
+  step "up" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+    use "up" {
+    }
+  }
+}
+
 runner {
   enabled = true
 
