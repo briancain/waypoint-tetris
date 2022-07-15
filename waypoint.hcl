@@ -2,7 +2,8 @@ project = "k8s-tetris"
 
 pipeline "marathon" {
   step "up" {
-    image_url = "localhost:5000/waypoint-odr:dev"
+    #image_url = "localhost:5000/waypoint-odr:dev"
+
     use "up" {
     }
   }
