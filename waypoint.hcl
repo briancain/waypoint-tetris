@@ -10,6 +10,8 @@ pipeline "marathon" {
 }
 
 runner {
+  profile = "kubernetes-bootstrap-profile"
+
   enabled = true
 
   data_source "git" {
