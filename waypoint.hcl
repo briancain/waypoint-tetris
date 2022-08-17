@@ -95,7 +95,7 @@ runner {
 
 app "tetris" {
   build {
-    workspace "production" {
+    workspace "default" {
       use "docker" {
       }
     }
