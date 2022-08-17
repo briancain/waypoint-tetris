@@ -94,19 +94,17 @@ runner {
 }
 
 app "tetris" {
-  workspace "default" {
-    build {
-      use "docker" {
-      }
+  build {
+    use "docker" {
+    }
 
-      registry {
-        use "docker" {
-          image    = var.image
-          tag      = var.tag
-          username = var.registry_username
-          password = var.registry_password
-          local    = var.registry_local
-        }
+    registry {
+      use "docker" {
+        image    = var.image
+        tag      = var.tag
+        username = var.registry_username
+        password = var.registry_password
+        local    = var.registry_local
       }
     }
   }
