@@ -18,6 +18,8 @@ pipeline "release" {
   step "test" {
     pipeline "test" {
       step "scan-then-sign" {
+        image_url = "localhost:5000/waypoint-odr:dev"
+
         use "exec" {
           command = "echo"
           args    = ["singing some artifacts!!"]
@@ -30,6 +32,8 @@ pipeline "release" {
       }
 
       step "healthz" {
+        image_url = "localhost:5000/waypoint-odr:dev"
+
         use "exec" {
           command = "curl"
           args    = ["-v", "example.com"]
@@ -52,6 +56,8 @@ pipeline "release" {
       }
 
       step "healthz" {
+        image_url = "localhost:5000/waypoint-odr:dev"
+
         use "exec" {
           command = "curl"
           args    = ["-v", "example.com"]
