@@ -95,16 +95,7 @@ runner {
 
 app "tetris" {
   build {
-    workspace "default" {
-      use "docker" {
-      }
-    }
-
-    workspace "production" {
-      use "docker-pull" {
-        image = var.image
-        tag   = var.tag
-      }
+    use "docker" {
     }
 
     registry {
