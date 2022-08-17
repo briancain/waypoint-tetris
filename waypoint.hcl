@@ -71,6 +71,15 @@ pipeline "release" {
     }
   }
 
+  step "notify-release" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+
+    use "exec" {
+      command = "echo"
+      args    = ["we released the app!!"]
+    }
+  }
+
 }
 
 runner {
