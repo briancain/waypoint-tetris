@@ -94,27 +94,26 @@ runner {
 }
 
 app "tetris" {
-  workspace "default" {
-    build {
+  build {
+    workspace "production" {
       use "docker" {
       }
-      registry {
-        use "docker" {
-          image    = var.image
-          tag      = var.tag
-          username = var.registry_username
-          password = var.registry_password
-          local    = var.registry_local
-        }
-      }
     }
-  }
 
-  workspace "production" {
-    build {
+    workspace "production" {
       use "docker-pull" {
         image = "gcr.io/my-project/my-image"
         tag   = "abcd1234"
+      }
+    }
+
+    registry {
+      use "docker" {
+        image    = var.image
+        tag      = var.tag
+        username = var.registry_username
+        password = var.registry_password
+        local    = var.registry_local
       }
     }
   }
