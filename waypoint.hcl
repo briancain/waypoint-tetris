@@ -102,8 +102,8 @@ app "tetris" {
 
     workspace "production" {
       use "docker-pull" {
-        image = "gcr.io/my-project/my-image"
-        tag   = "abcd1234"
+        image = var.image
+        tag   = var.tag
       }
     }
 
