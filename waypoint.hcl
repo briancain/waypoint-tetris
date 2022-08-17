@@ -7,16 +7,6 @@ pipeline "marathon" {
     use "up" {
     }
   }
-
-  //step "another" {
-  //  pipeline "overflow" {
-  //    step "up-two" {
-
-  //      use "up" {
-  //      }
-  //    }
-  //  }
-  //}
 }
 
 runner {
