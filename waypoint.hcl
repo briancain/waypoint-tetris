@@ -9,6 +9,64 @@ pipeline "marathon" {
   }
 }
 
+pipeline "release" {
+  step "build" {
+    use "build" {
+    }
+  }
+
+  step "test" {
+    pipeline "test" {
+      step "scan-then-sign" {
+        use "exec" {
+          command = "echo"
+          args    = ["singing some artifacts!!"]
+        }
+      }
+
+      step "deploy-test" {
+        use "deploy" {
+        }
+      }
+
+      step "healthz" {
+        use "exec" {
+          command = "curl"
+          args    = ["-v", "example.com"]
+        }
+      }
+    }
+  }
+
+  step "production" {
+    pipeline "prod" {
+      step "build" {
+        use "build" {
+          // actually use docker-pull here
+        }
+      }
+
+      step "deploy-prod" {
+        use "deploy" {
+        }
+      }
+
+      step "healthz" {
+        use "exec" {
+          command = "curl"
+          args    = ["-v", "example.com"]
+        }
+      }
+
+      step "release-prod" {
+        use "release" {
+        }
+      }
+    }
+  }
+
+}
+
 runner {
   profile = "kubernetes-bootstrap-profile"
 
