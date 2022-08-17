@@ -97,6 +97,12 @@ app "tetris" {
   build {
     use "docker" {
     }
+    workspace "production" {
+      use "docker-pull" {
+        image = var.image
+        tag   = var.tag
+      }
+    }
 
     registry {
       use "docker" {
