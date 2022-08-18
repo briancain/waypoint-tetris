@@ -9,6 +9,22 @@ pipeline "marathon" {
   }
 }
 
+pipeline "simple-nested" {
+  step "build" {
+    use "build" {
+    }
+  }
+
+  step "deploy" {
+    pipeline "deploy" {
+      step "deploy" {
+        use "deploy" {
+        }
+      }
+    }
+  }
+}
+
 pipeline "release" {
   step "build" {
     use "build" {
