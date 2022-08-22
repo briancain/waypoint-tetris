@@ -10,14 +10,10 @@ pipeline "marathon" {
     }
   }
 
-  step "broken" {
+  step "broken?" {
     pipeline "exec" {
-      step "do-it" {
-        image_url = "localhost:5000/waypoint-odr:dev"
-
-        use "exec" {
-          command = "echo"
-          args    = ["this might not work!"]
+      step "build" {
+        use "build" {
         }
       }
     }
