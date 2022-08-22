@@ -2,11 +2,15 @@ project = "k8s-tetris"
 
 pipeline "marathon" {
   step "test" {
-    image_url = "localhost:5000/waypoint-odr:dev"
+    pipeline "exec" {
+      step "do-it" {
+        image_url = "localhost:5000/waypoint-odr:dev"
 
-    use "exec" {
-      command = "echo"
-      args    = ["get ready!"]
+        use "exec" {
+          command = "echo"
+          args    = ["get ready!"]
+        }
+      }
     }
   }
 
