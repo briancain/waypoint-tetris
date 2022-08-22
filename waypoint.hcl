@@ -19,7 +19,7 @@ pipeline "marathon" {
 
   step "broken?" {
     pipeline "exec" {
-      step "build" {
+      step "build-nested" {
         use "build" {
         }
       }
