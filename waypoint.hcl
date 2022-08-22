@@ -5,6 +5,7 @@ pipeline "marathon" {
     #image_url = "localhost:5000/waypoint-odr:dev"
 
     use "up" {
+      prune = true
     }
   }
 
