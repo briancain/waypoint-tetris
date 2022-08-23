@@ -38,11 +38,11 @@ pipeline "simple-nested" {
     pipeline "deploy" {
       step "deploy" {
         use "deploy" {
-          prune = true
         }
       }
       step "release" {
         use "release" {
+          prune = true
         }
       }
     }
