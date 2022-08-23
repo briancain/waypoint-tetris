@@ -1,5 +1,6 @@
 project = "k8s-tetris"
 
+/*
 pipeline "marathon" {
   step "up" {
     #image_url = "localhost:5000/waypoint-odr:dev"
@@ -121,6 +122,8 @@ pipeline "release" {
   }
 
 }
+
+*/
 
 runner {
   profile = "kubernetes-bootstrap-profile"
