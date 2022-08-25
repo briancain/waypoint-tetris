@@ -18,17 +18,16 @@ pipeline "marathon" {
     }
   }
 
-  //step "nested?" {
-  //  pipeline "exec" {
-  //    step "build-nested" {
-  //      use "build" {
-  //      }
-  //    }
-  //  }
-  //}
+  step "nested?" {
+    pipeline "exec" {
+      step "build-nested" {
+        use "build" {
+        }
+      }
+    }
+  }
 }
 
-/*
 pipeline "simple-nested" {
   step "build" {
     use "build" {
@@ -122,8 +121,6 @@ pipeline "release" {
   }
 
 }
-
-*/
 
 runner {
   profile = "kubernetes-bootstrap-profile"
