@@ -28,6 +28,22 @@ pipeline "marathon" {
   }
 }
 
+pipeline "example" {
+  step "build" {
+    use "build" {
+    }
+  }
+  step "deploy" {
+    use "deploy" {
+    }
+  }
+  step "release" {
+    use "release" {
+      prune = true
+    }
+  }
+}
+
 pipeline "simple-nested" {
   step "build" {
     use "build" {
