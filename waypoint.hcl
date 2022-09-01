@@ -39,7 +39,6 @@ pipeline "example" {
   }
   step "release" {
     use "release" {
-      prune = true
     }
   }
 }
