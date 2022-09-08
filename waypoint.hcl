@@ -138,7 +138,7 @@ pipeline "release" {
 }
 
 runner {
-  profile = "kubernetes-bootstrap-profile"
+  //profile = "kubernetes-bootstrap-profile"
 
   enabled = true
 
