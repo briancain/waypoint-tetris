@@ -45,6 +45,8 @@ pipeline "example" {
 
 pipeline "simple-nested" {
   step "here-we-go" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+
     use "exec" {
       command = "echo"
       args    = ["lets try a nested pipeline"]
