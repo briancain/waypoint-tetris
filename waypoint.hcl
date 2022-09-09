@@ -74,7 +74,7 @@ pipeline "simple-nested" {
   step "deploy-prod" {
     workspace = "prod"
 
-    pipeline "deploy" {
+    pipeline "deploy-prod" {
       step "build" {
         use "build" {
         }
