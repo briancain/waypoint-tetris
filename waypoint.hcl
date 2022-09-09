@@ -71,6 +71,8 @@ pipeline "release" {
   }
 
   step "test" {
+    workspace = "test"
+
     pipeline "test" {
       step "scan-then-sign" {
         image_url = "localhost:5000/waypoint-odr:dev"
@@ -98,6 +100,8 @@ pipeline "release" {
   }
 
   step "production" {
+    workspace = "production"
+
     pipeline "prod" {
       step "build" {
         use "build" {
