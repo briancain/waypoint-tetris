@@ -65,7 +65,6 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
-          prune = false
         }
       }
     }
@@ -85,7 +84,6 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
-          prune = false
         }
       }
     }
