@@ -44,13 +44,21 @@ pipeline "example" {
 }
 
 pipeline "simple-nested" {
-  step "build" {
-    use "build" {
+  step "here-we-go" {
+    use "exec" {
+      command = "echo"
+      args    = ["lets try a nested pipeline"]
     }
   }
 
   step "deploy" {
+    workspace = "test"
+
     pipeline "deploy" {
+      step "build" {
+        use "build" {
+        }
+      }
       step "deploy" {
         use "deploy" {
         }
