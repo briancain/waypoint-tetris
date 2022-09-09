@@ -2,8 +2,6 @@ project = "k8s-tetris"
 
 pipeline "marathon" {
   step "up" {
-    #image_url = "localhost:5000/waypoint-odr:dev"
-
     use "up" {
       prune = true
     }
@@ -67,7 +65,27 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
-          prune = true
+          prune = false
+        }
+      }
+    }
+  }
+
+  step "deploy-prod" {
+    workspace = "prod"
+
+    pipeline "deploy" {
+      step "build" {
+        use "build" {
+        }
+      }
+      step "deploy" {
+        use "deploy" {
+        }
+      }
+      step "release" {
+        use "release" {
+          prune = false
         }
       }
     }
