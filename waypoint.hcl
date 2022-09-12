@@ -79,6 +79,15 @@ pipeline "simple-nested" {
     }
   }
 
+  step "break" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+
+    use "exec" {
+      command = "echo"
+      args    = ["lets try a nested pipeline"]
+    }
+  }
+
   step "deploy-prod" {
     workspace = "prod"
 
