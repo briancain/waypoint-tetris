@@ -1,6 +1,12 @@
 project = "k8s-tetris"
 
 pipeline "marathon" {
+  step "up" {
+    use "up" {
+      prune = true
+    }
+  }
+
   step "up-test" {
     workspace = "test"
 
