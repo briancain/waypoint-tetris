@@ -1,25 +1,25 @@
 project = "k8s-tetris"
 
 pipeline "marathon" {
-  step "up" {
-    use "up" {
-      prune = true
+  step "up-test" {
+    workspace = "test"
+
+    pipeline "up-test" {
+      step "up" {
+        use "up" {
+          prune = true
+        }
+      }
     }
   }
 
-  step "do-it" {
-    image_url = "localhost:5000/waypoint-odr:dev"
+  step "up-prod" {
+    workspace = "prod"
 
-    use "exec" {
-      command = "echo"
-      args    = ["this works!"]
-    }
-  }
-
-  step "nested?" {
-    pipeline "exec" {
-      step "build-nested" {
-        use "build" {
+    pipeline "up-prod" {
+      step "up" {
+        use "up" {
+          prune = true
         }
       }
     }
