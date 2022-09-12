@@ -1,9 +1,12 @@
 project = "k8s-tetris"
 
 pipeline "marathon" {
-  step "up" {
-    use "up" {
-      prune = true
+  step "here-we-go" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+
+    use "exec" {
+      command = "echo"
+      args    = ["lets try a nested pipeline"]
     }
   }
 
