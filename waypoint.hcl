@@ -1,36 +1,9 @@
 project = "k8s-tetris"
 
 pipeline "marathon" {
-  step "here-we-go" {
-    image_url = "localhost:5000/waypoint-odr:dev"
-
-    use "exec" {
-      command = "echo"
-      args    = ["lets try a nested pipeline"]
-    }
-  }
-
-  step "up-test" {
-    workspace = "test"
-
-    pipeline "up-test" {
-      step "up" {
-        use "up" {
-          prune = true
-        }
-      }
-    }
-  }
-
-  step "up-prod" {
-    workspace = "prod"
-
-    pipeline "up-prod" {
-      step "up" {
-        use "up" {
-          prune = true
-        }
-      }
+  step "up" {
+    use "up" {
+      prune = true
     }
   }
 }
@@ -135,6 +108,15 @@ pipeline "release" {
           args    = ["-v", "example.com"]
         }
       }
+    }
+  }
+
+  step "on-to-prod" {
+    image_url = "localhost:5000/waypoint-odr:dev"
+
+    use "exec" {
+      command = "curl"
+      args    = ["-v", "example.com"]
     }
   }
 
