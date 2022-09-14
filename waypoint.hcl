@@ -8,7 +8,7 @@ pipeline "marathon" {
   }
 }
 
-pipeline "example" {
+pipeline "up" {
   step "build" {
     use "build" {
     }
