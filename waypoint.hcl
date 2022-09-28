@@ -47,6 +47,8 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
+          prune        = true
+          prune_retain = 1
         }
       }
     }
@@ -66,6 +68,8 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
+          prune        = true
+          prune_retain = 1
         }
       }
     }
