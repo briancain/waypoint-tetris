@@ -47,6 +47,7 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
+          // Don't care about too much deploy history since we're in test
           prune        = true
           prune_retain = 1
         }
@@ -68,8 +69,6 @@ pipeline "simple-nested" {
       }
       step "release" {
         use "release" {
-          prune        = true
-          prune_retain = 1
         }
       }
     }
