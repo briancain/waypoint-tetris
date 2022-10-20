@@ -101,9 +101,7 @@ pipeline "release" {
 
       step "deploy-test" {
         use "deploy" {
-          // Don't care about too much deploy history since we're in test
-          prune        = true
-          prune_retain = 1
+          release = false
         }
       }
 
