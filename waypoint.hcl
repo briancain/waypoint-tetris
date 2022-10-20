@@ -94,8 +94,9 @@ pipeline "release" {
         image_url = "localhost:5000/waypoint-odr:dev"
 
         use "exec" {
-          command = "which"
-          args    = ["trivy"]
+# this should fail
+          command = "asdfasdf"
+          args    = ["asdf"]
         }
       }
 
