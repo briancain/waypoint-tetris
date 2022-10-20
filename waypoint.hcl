@@ -160,7 +160,7 @@ pipeline "release" {
 
     use "exec" {
       command = "echo"
-      args    = ["we released the app!!"]
+      args    = ["Sending notification to SLACK - Application released!"]
     }
   }
 
