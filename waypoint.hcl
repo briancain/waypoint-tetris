@@ -95,7 +95,7 @@ pipeline "release" {
 
         use "exec" {
           command = "trivy"
-          args    = ["image", "localhost:5000/waypoint-odr:dev", "--format", "json"]
+          args    = ["image", "--server" "team-waypoint-dev-docker-local.artifactory.hashicorp.engineering", "tetris:latest", "--format", "json"]
         }
       }
 
