@@ -180,7 +180,7 @@ app "tetris" {
   build {
     use "docker" {
     }
-    workspace "production" {
+    workspace "fixme" {
       use "docker-pull" {
         image = var.image
         tag   = var.tag
@@ -193,6 +193,12 @@ app "tetris" {
       }
     }
     workspace "test" {
+      use "docker-ref" {
+        image = var.image
+        tag   = var.tag
+      }
+    }
+    workspace "production" {
       use "docker-ref" {
         image = var.image
         tag   = var.tag
