@@ -90,6 +90,15 @@ pipeline "release" {
         }
       }
 
+      step "test" {
+        image_url = "localhost:5000/waypoint-odr:dev"
+
+        use "exec" {
+          command = "which"
+          args    = ["trivy"]
+        }
+      }
+
       step "scan-then-sign" {
         image_url = "localhost:5000/waypoint-odr:dev"
 
