@@ -89,12 +89,13 @@ pipeline "release" {
         use "build" {
         }
       }
+
       step "scan-then-sign" {
         image_url = "localhost:5000/waypoint-odr:dev"
 
         use "exec" {
-          command = "echo"
-          args    = ["singing some artifacts!!"]
+          command = "trivy"
+          args    = ["image", "localhost:5000/waypoint-odr:dev", "--format", "json"]
         }
       }
 
