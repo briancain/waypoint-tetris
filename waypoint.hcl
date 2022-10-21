@@ -151,6 +151,8 @@ pipeline "release" {
 
       step "release-prod" {
         use "release" {
+          prune        = true
+          prune_retain = 1
         }
       }
     }
@@ -182,7 +184,7 @@ app "tetris" {
   build {
     use "docker" {
     }
-    workspace "fixme" {
+    workspace "int" {
       use "docker-pull" {
         image = var.image
         tag   = var.tag
