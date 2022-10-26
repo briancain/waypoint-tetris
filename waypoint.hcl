@@ -244,9 +244,11 @@ app "tetris" {
   }
 
   release {
-    use "kubernetes" {
-      load_balancer = true
-      port          = 3000
+    workspace "nope" {
+      use "kubernetes" {
+        load_balancer = true
+        port          = 3000
+      }
     }
   }
 }
