@@ -82,7 +82,7 @@ pipeline "release" {
   }
 
   step "test" {
-    workspace = "test"
+    workspace = "int"
 
     pipeline "test" {
       step "build" {
