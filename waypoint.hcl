@@ -2,6 +2,8 @@ project = "k8s-tetris"
 
 pipeline "marathon" {
   step "up" {
+    workspace = var.workspace
+
     use "up" {
       prune = true
     }
@@ -295,4 +297,10 @@ variable "regcred_secret" {
   default     = "regcred"
   type        = string
   description = "The existing secret name inside Kubernetes for authenticating to the container registry"
+}
+
+variable "workspace" {
+  default     = "example"
+  type        = string
+  description = "A variable to change the workspace for certain steps."
 }
