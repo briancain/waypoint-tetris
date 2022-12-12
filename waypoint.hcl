@@ -291,7 +291,7 @@ variable "registry_password" {
   })
   type        = string
   sensitive   = true
-  description = "password for registry" // don't hack me plz
+  description = "password for container registry" // don't hack me plz
 }
 
 variable "regcred_secret" {
