@@ -30,4 +30,4 @@ jobs:
           # Run the pipeline!
           waypoint version
           waypoint init
-          waypoint pipeline run marathon -workspace=${{ github.ref_name }}
+          waypoint pipeline run -workspace=${{ github.ref_name }} marathon
