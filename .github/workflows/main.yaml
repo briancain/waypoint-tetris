@@ -23,7 +23,7 @@ jobs:
 
           # Create a CLI context to hook up to a Waypoint server
           waypoint context create \
-            -server-addr=${{ sercrets.WAYPOINT_SERVER_ADDR }} \
+            -server-addr=${{ secrets.WAYPOINT_SERVER_ADDR }} \
             -server-auth-token=${{ secrets.HCP_WAYPOINT_SERVER_TOKEN }} \
             -server-require-auth=true \
             -server-platform="hcp" \
