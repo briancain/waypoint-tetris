@@ -7,7 +7,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    run: |
-      echo "The PR was merged!"
-      ls -lah
+      - uses: actions/checkout@v3
+      - run: |
+          ls -lah
+          echo "the files"
