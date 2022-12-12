@@ -1,8 +1,8 @@
 name: "Runs a Waypoint deployment on merge"
 on:
-push:
-  branches:
-    - main
+  push:
+    branches:
+      - main
 jobs:
   deploy:
     if: github.event.pull_request.merged == true
