@@ -32,5 +32,5 @@ jobs:
           waypoint version
           waypoint init
           waypoint pipeline run -workspace=${{ github.ref_name }} \
-            -remote-source=ref=$GITHUB_SHA
+            -remote-source=ref=$GITHUB_SHA \
             marathon
