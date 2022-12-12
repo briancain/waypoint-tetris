@@ -2,8 +2,6 @@ project = "k8s-tetris"
 
 pipeline "marathon" {
   step "up" {
-    workspace = var.workspace
-
     use "up" {
       prune = true
     }
