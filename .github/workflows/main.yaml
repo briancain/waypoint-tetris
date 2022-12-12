@@ -9,5 +9,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-      echo 'The PR was merged!'
+      echo "The PR was merged!"
       ls -lah
