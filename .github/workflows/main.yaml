@@ -27,7 +27,10 @@ jobs:
             -set-default \
             hcp-waypoint-gh-runner
 
+      - run: |
           # Run the pipeline!
           waypoint version
           waypoint init
-          waypoint pipeline run -workspace=${{ github.ref_name }} marathon
+          waypoint pipeline run -workspace=${{ github.ref_name }} \
+            -remote-source=ref=$GITHUB_SHA
+            marathon
