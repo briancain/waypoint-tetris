@@ -1,5 +1,8 @@
 name: "Runs a Waypoint deployment on merge"
 on:
+  # once a day, at the end of the day
+  #schedule:
+  #  - cron: "0 0 * * *"
   push:
     branches:
       - main
