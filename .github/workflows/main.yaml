@@ -15,7 +15,7 @@ jobs:
 
           waypoint context create \
             -server-addr=api.hashicorp.cloud:443 \
-            -server-auth-token= ${{ secrets.HCP_WAYPOINT_SERVER_TOKEN }} \
+            -server-auth-token=${{ secrets.HCP_WAYPOINT_SERVER_TOKEN }} \
             -server-require-auth=true \
             -server-platform="hcp" \
             -set-default \
