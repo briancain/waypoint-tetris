@@ -1,0 +1,13 @@
+name: "Runs a Waypoint deployment on merge"
+on:
+push:
+  branches:
+    - main
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    uses: actions/checkout@v2
+    steps:
+    - run: |
+      echo The PR was merged!
