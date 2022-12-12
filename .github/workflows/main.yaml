@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+      - prod
+      - test
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -11,10 +13,12 @@ jobs:
       - run: |
           echo running on branch ${{ github.ref_name }}
       - run: |
+        # Install the latest Waypoint CLI
           wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
           echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
           sudo apt update && sudo apt install waypoint
 
+          # Create a CLI context to hook up to a Waypoint server
           waypoint context create \
             -server-addr=api.hashicorp.cloud:443 \
             -server-auth-token=${{ secrets.HCP_WAYPOINT_SERVER_TOKEN }} \
@@ -23,6 +27,7 @@ jobs:
             -set-default \
             hcp-waypoint-gh-runner
 
+          # Run the pipeline!
           waypoint version
           waypoint init
-          waypoint pipeline run marathon
+          waypoint pipeline run marathon -workspace=${{ github.ref_name }}
