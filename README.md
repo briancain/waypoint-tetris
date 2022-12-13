@@ -1,5 +1,7 @@
 # Waypoint Tetris
 
+[![Runs a Waypoint deployment on merge](https://github.com/briancain/waypoint-tetris/actions/workflows/main.yaml/badge.svg)](https://github.com/briancain/waypoint-tetris/actions/workflows/main.yaml)
+
 A static HTML and CSS website that can be deployed with Docker or Kubernetes.
 
 Uses the `nginx` image configured to run on the default Waypoint port 3000.
