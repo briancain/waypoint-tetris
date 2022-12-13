@@ -236,7 +236,7 @@ app "tetris" {
       }
 
       autoscale {
-        min_replicas = 1
+        min_replicas = 2
         max_replicas = 5
         cpu_percent  = 50
       }
